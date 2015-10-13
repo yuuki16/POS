@@ -14,10 +14,10 @@ namespace POS_PointOfSale.Models
 
         public DateTime cl_fechaCreacion { get; set; }
 
+        [Display(Name = "Activo")]
+        [Required(ErrorMessage = "Debe ingresar {0}")]
+        [StringLength(30, ErrorMessage = "El campo {0} debe estar entre {2} and {1} caracteres", MinimumLength = 1)]
         public string cl_activo { get; set; }
-
-        public int cl_direccion { get; set; }
-
-        public int cl_tel { get; set; }
     }
+
 }
