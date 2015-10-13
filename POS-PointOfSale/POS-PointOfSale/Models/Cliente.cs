@@ -12,6 +12,10 @@ namespace POS_PointOfSale.Models
         [Key]
         public int cl_cedula { get; set; }
 
+        [Display(Name = "Fecha de Creación")]
+        [Required(ErrorMessage = "Debe ingresar {0}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         public DateTime cl_fechaCreacion { get; set; }
 
         [Display(Name = "Activo")]
@@ -19,5 +23,4 @@ namespace POS_PointOfSale.Models
         [StringLength(30, ErrorMessage = "El campo {0} debe estar entre {2} and {1} caracteres", MinimumLength = 1)]
         public string cl_activo { get; set; }
     }
-
 }
