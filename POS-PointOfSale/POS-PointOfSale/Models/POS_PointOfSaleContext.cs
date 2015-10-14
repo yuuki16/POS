@@ -20,6 +20,8 @@ namespace POS_PointOfSale.Models
         }
 
         public System.Data.Entity.DbSet<POS_PointOfSale.Models.Cliente> Clientes { get; set; }
+
+        public System.Data.Entity.DbSet<POS_PointOfSale.Models.Inventario> Inventarios { get; set; }
     
     }
 }
