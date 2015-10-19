@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -19,9 +20,17 @@ namespace POS_PointOfSale.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //quita borrar en cascada
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        }
+
         public System.Data.Entity.DbSet<POS_PointOfSale.Models.Cliente> Clientes { get; set; }
 
         public System.Data.Entity.DbSet<POS_PointOfSale.Models.Inventario> Inventarios { get; set; }
+        public System.Data.Entity.DbSet<POS_PointOfSale.Models.Factura> Facturas { get; set; }
+        public System.Data.Entity.DbSet<POS_PointOfSale.Models.DetalleFactura> DetalleFacturas { get; set; }
     
     }
 }
