@@ -20,7 +20,7 @@ namespace POS_PointOfSale.Models
 
         [Display(Name = "Activo")]
         [Required(ErrorMessage = "Debe ingresar {0}")]
-        [StringLength(30, ErrorMessage = "El campo {0} debe estar entre {2} and {1} caracteres", MinimumLength = 1)]
+        [StringLength(30, ErrorMessage = "El campo {0} debe estar entre {2} y {1} caracteres", MinimumLength = 1)]
         public string cl_activo { get; set; }
     }
 }

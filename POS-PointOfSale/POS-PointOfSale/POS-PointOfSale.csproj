@@ -178,9 +178,15 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\DetalleFactura.cs" />
+    <Compile Include="Models\Direccion.cs" />
+    <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\POS_PointOfSaleContext.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Telefono.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
