@@ -1,0 +1,88 @@
+﻿@model POS_PointOfSale.ViewModels.FacturaView
+@{
+    ViewBag.Title = "Nueva Compra";
+}
+
+<h2>Nueva Compra</h2>
+<h3>@ViewBag.Error</h3>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm("NuevaFactura", "Facturas", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cliente.cl_cedula, "cl_cedula", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("cl_cedula", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cliente.cl_cedula, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @Html.ActionLink("Añadir Producto", "AddProducto", new { }, new { @class = "btn btn-primary" })
+        <input type="submit" value="Guardar Orden" class="btn btn-default" />
+
+    </div>
+}
+
+<h2>Factura Detalle</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.in_descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.in_precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.SubTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.Descuento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inventario.Total)
+        </th>
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < Model.Inventarios.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].in_descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].in_precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].SubTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].Descuento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Inventarios[i].Total)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Inventarios[i].in_codArticulo }) |
+                @Html.ActionLink("Details", "Details", new { id = Model.Inventarios[i].in_codArticulo }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Inventarios[i].in_codArticulo })
+            </td>
+        </tr>
+    }
+
+</table>
+

@@ -1,0 +1,31 @@
+﻿@model POS_PointOfSale.ViewModels.UserView
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles del Usuario: @Model.Name</h2>
+
+
+
+<p>
+    @Html.ActionLink("Añadir Rol", "AddRole", new { userID = Model.UserID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Atras", "Index", new { }, new { @class = "btn btn-info" })
+
+</p>
+<table class="table">
+
+
+    @for (int i = 0; i < Model.Roles.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Roles[i].Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { userID = Model.UserID, roleID = Model.Roles[i].RoleID })
+            </td>
+        </tr>
+    }
+
+</table>
+
